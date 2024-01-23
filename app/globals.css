@@ -1,27 +1,203 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+ 
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {     /* For hiding scrollbar */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+ /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
 }
+}
+
+/* .signin {
+  width: "80px";
+  height: "80px";
+  border-radius: "0.25rem";
+  background: "#000";
+  display: "flex";
+  justify-content: "center";
+  align-items:"center"
+} */
+
+.icon_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px black solid;
+  border-radius: 0.2rem;
+  height: 2.4rem;
+  width: 2.4rem;
+  align-items: center;
+  background: black;
+}
+
+.icon_text {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_height {
+  height: 480px !important;
+}
+
+
+      /* For Login Container */
+
+.login_container {
+  display: flex;
+  border: 2px solid red;
+  border-radius: 1rem;
+  height: 95vh;
+  width: 70vw;
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgba(59,130,246,.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+}
+
+  /* For Login Container Img */
+
+.image_left {
+  width: 50%;
+  /* border-radius: 0.8rem; */
+  border-top-left-radius: 0.8rem;
+  border-bottom-left-radius: 0.8rem;
+}
+
+.login_container_right {
+  
+  /* background-image: linear-gradient(to left, #40434f , #01011500); */
+  /* display: flex;
+  flex-direction: column; */
+  padding-left: 3rem;
+}
+
+.login_container_right_head {
+    /* margin: 0 auto; */
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    line-height: 32px;
+    padding-top: 2rem;
+    width: 100%;
+}
+
+.login_container_right_inpt {
+  width: 15%;
+
+  border-radius: 0.6rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  text-align: center;
+  background-color: #3b3b3b;
+  color: #9ca3af;
+}
+
+.login_container_right_input_name {
+  border-radius: 0.6rem;
+  text-align: center;
+  padding: 10px 5px;
+  
+}
+    /* To hide arrow in input field */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+  /* For p tag */
+
+.login_container_right_input_p {
+  font-size: xx-small;
+  color: #645c95;
+  width: 100%;
+ 
+}
+
